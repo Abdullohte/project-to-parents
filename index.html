@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Rental</title>
+  <link rel="stylesheet" href="./main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+
+<body>
+  <header>
+    <a href="#" class="logo"><img src="./img/logo.png" alt=""></a>
+
+    <ul class="navigation">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#work">How it Work</a></li>
+      <li><a href="#deal">Rental Deal</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#choose">Why Choose Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="header-btn">
+      <a href="#" class="btn-1">Sign In</a>
+      <a href="#" class="btn-2">Sign Up</a>
+      
+      <div class="bx bx-menu" id="menu-icon"></div>
+    </div>
+  </header>
+
+  <section class="home" id="home">
+    <div class="home-text">
+      <h1>Fast And Easy Way <br>To Rent A Car</h1>
+      <p>Sed volutpat sed nunc vel porttitor. Fusce placerat aliquam dolor non pretium. Vestibulum ante ipsum primis in
+        faucibus orci luctus.</p>
+        
+      <div class="home-mid">
+        <div class="mid-top">
+          <h5>Select Your Car Type</h5>
+          <h5>Date Of Pick Up/Time</h5>
+        </div>
+    
+        <div class="car-pickup">
+          <div class="car">
+            <select id="car-select" class="car-select">
+              <option value="" disabled selected>Select Car</option>
+              <option value="jeep-diesel-2025">Jeep Diesel Model 2025</option>
+              <option value="sedan-electric-2025">Sedan Electric Model 2025</option>
+              <option value="suv-hybrid-2025">SUV Hybrid Model 2025</option>
+              <option value="sports-car-2025">Sports Car Model 2025</option>
+              <option value="minivan-2025">Family Minivan 2025</option>
+              <option value="luxury-sedan-2025">Luxury Sedan 2025</option>
+              <option value="compact-2025">Compact Car 2025</option>
+              <option value="pickup-truck-2025">Pickup Truck 2025</option>
+            </select>
+            
+            <select id="location-select" class="location-select">
+              <option value="" disabled selected>Select Location</option>
+              <option value="clinton">201$ Clinton St#146, City</option>
+              <option value="downtown">135 Downtown Ave, City</option>
+              <option value="uptown">78 Uptown Blvd, City</option>
+            </select>
+          </div>
+          
+          <div class="pickup">
+            <div class="date-time">
+              <input type="date" id="pickup-date" class="date-input">
+              <input type="time" id="pickup-time" class="time-input">
+            </div>
+            
+            <div class="date-time">
+              <input type="date" id="return-date" class="date-input">
+              <input type="time" id="return-time" class="time-input">
+            </div>
+          </div>
+        </div>
+    
+        <div class="home-btn">
+          <a href="#" id="search-btn">Search</a>
+        </div>
+      </div>
+    </div>
+   
+    <div class="home-img" id="home-img">
+      <img src="./img/jeep2025.png" alt="" id="car-default-image">
+      
+      <div id="car-display" class="car-display">
+        <img id="selected-car-image" src="./img/jeep-2.png" alt="Selected Car">
+        <div class="buy-btn">
+          <a href="#" id="buy-btn">Rent Now</a>
+        </div>
+      </div>
+    </div>
+    
+    <div id="confirmation-popup" class="confirmation-popup">
+      <div class="popup-content">
+        <h3>You have rented <span id="rented-car-name"></span></h3>
+        <p>We will deliver it to your location within 2 days.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" id="work">
+    <div class="work-top">
+      <h2>How It Work</h2>
+      <p>Sed volutpat sed nunc vel porttitor. Fusce placerat aliquam dolor non pretium. 
+      Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere</p>
+    </div>
+  
+    <div class="main-work">
+      <div class="work-1">
+        <a href="#"><i class='bx bxs-location-plus'></i></a>
+        <h4>Choose Location</h4>
+        <p>Sed volutpat sed nunc vel porttitor. Fusce placerat aliquam dolor non pretium. Vestibulum ante ipsum</p>
+      </div>
+      <div class="work-1" id="workid">
+        <a href="#"><i class='bx bxs-calendar-alt'></i></a>
+        <h4>Pick-Up Date</h4>
+        <p>Sed volutpat sed nunc vel porttitor. Fusce placerat aliquam dolor non pretium. Vestibulum ante ipsum</p>
+      </div>
+      
+      <div class="work-1">
+        <a href="#"><i class='bx bxs-car'></i></a>
+        <h4>Book Your Car</h4>
+        <p>Sed volutpat sed nunc vel porttitor. Fusce placerat aliquam dolor non pretium. Vestibulum ante ipsum</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="deal" id="deal">
+    <div class="work-top">
+      <h2>Best Rental Deal</h2>
+      <p>Sed volutpat sed nunc vel porttitor. Fusce placerat aliquam dolor non pretium. 
+      Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere</p>
+    </div>
+  
+    <div class="main-work">
+      <div class="work-1">
+        <img src="./img/jeep2025.png" alt="Jeep">
+        <h4>Jeep Diesel Model 2025</h4>
+        <p>$120/day</p>
+        <div class="buy-btn">
+          <a href="#" class="rent-btn" data-car="jeep-diesel-2025">Rent Now</a>
+        </div>
+      </div>
+      <div class="work-1">
+        <img src="./img/sedan-elektro.webp" alt="Sedan">
+        <h4>Sedan Electric Model 2025</h4>
+        <p>$90/day</p>
+        <div class="buy-btn">
+          <a href="#" class="rent-btn" data-car="sedan-electric-2025">Rent Now</a>
+        </div>
+      </div>
+      <div class="work-1">
+        <img src="./img/9-1.png" alt="SUV">
+        <h4>SUV Hybrid Model 2025</h4>
+        <p>$150/day</p>
+        <div class="buy-btn">
+          <a href="#" class="rent-btn" data-car="suv-hybrid-2025">Rent Now</a>
+        </div>
+      </div>
+      <div class="work-1">
+        <img src="./img/sport-car.png" alt="Sports Car">
+        <h4>Sports Car Model 2025</h4>
+        <p>$200/day</p>
+        <div class="buy-btn">
+          <a href="#" class="rent-btn" data-car="sports-car-2025">Rent Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- New Reviews Section with Swiper -->
+  <section class="reviews" id="reviews">
+    <div class="work-top">
+      <h2>Customer Reviews</h2>
+      <p>What our customers say about our service</p>
+    </div>
+    
+    <div class="swiper review-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide review-slide">
+          <div class="review-content">
+            <div class="review-rating">
+              <i class='bx bxs-star'></i>
+              <i class='bx bxs-star'></i>
+              <i class='bx bxs-star'></i>
+              <i class='bx bxs-star'></i>
+              <i class='bx bxs-star'></i>
+            </div>
+            <p>"Excellent service! The car was clean and in perfect condition. Will definitely rent again!"</p>
+            <div class="review-author">
+              <img src="./img/user1.jpg" alt="John Doe">
+              <h5>John Doe</h5>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide review-slide">
+          <div class="review-content">
+            <div class="review-rating">
+              <i class='bx bxs-star'></i>
+              <i class='bx bxs-star'></i>
+              <i class='bx bxs-star'></i>
+              <i class='bx bxs-star'></i>
+              <i class='bx bxs-star-half'></i>
+            </div>
+            <p>"Very convenient booking process and friendly staff. The car was exactly as described."</p>
+            <div class="review-author">
+              <img src="./img/user2.jpg" alt="Jane Smith">
+              <h5>Jane Smith</h5>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide review-slide">
+          <div class="review-content">
+            <div class="review-rating">
+              <i class='bx bxs-star'></i>
+              <i class='bx bxs-star'></i>
+              <i class='bx bxs-star'></i>
+              <i class='bx bxs-star'></i>
+              <i class='bx bxs-star'></i>
+            </div>
+            <p>"Best car rental experience I've had. The prices are competitive and the service is top-notch."</p>
+            <div class="review-author">
+              <img src="./img/user3.jpg" alt="Michael Johnson">
+              <h5>Michael Johnson</h5>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide review-slide">
+          <div class="review-content">
+            <div class="review-rating">
+              <i class='bx bxs-star'></i>
+              <i class='bx bxs-star'></i>
+              <i class='bx bxs-star'></i>
+              <i class='bx bxs-star'></i>
+              <i class='bx bx-star'></i>
+            </div>
+            <p>"Great selection of cars and easy pickup process. Will recommend to friends and family."</p>
+            <div class="review-author">
+              <img src="./img/user4.jpg" alt="Sarah Williams">
+              <h5>Sarah Williams</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+  
+  <section class="choose" id="choose">
+    <div class="work-top">
+      <h2>Why Choose Us</h2>
+      <p>Sed volutpat sed nunc vel porttitor. Fusce placerat aliquam dolor non pretium. 
+      Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere</p>
+    </div>
+  
+    <div class="main-work">
+      <div class="work-1">
+        <i class='bx bx-shield'></i>
+        <h4>24/7 Support</h4>
+        <p>Our customer service is available 24/7 to assist you with any questions or issues.</p>
+      </div>
+      <div class="work-1">
+        <i class='bx bx-dollar-circle'></i>
+        <h4>Best Price</h4>
+        <p>We guarantee the best prices for our rental cars with no hidden fees.</p>
+      </div>
+      <div class="work-1">
+        <i class='bx bx-map'></i>
+        <h4>Many Locations</h4>
+        <p>We have multiple pickup locations across the city for your convenience.</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="contact" id="contact">
+    <div class="work-top">
+      <h2>Contact Us</h2>
+      <p>Have questions? Feel free to reach out to our team for assistance.</p>
+    </div>
+  
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn-2">Send Message</button>
+    </form>
+  </section>
+  
+<section class="map-section" id="map-section">
+
+  <section class="map-section" id="map-section">
+    <div class="work-top">
+        <h2>Our Locations</h2>
+        <p>Find our rental locations across the city</p>
+    </div>
+    
+    <div class="map-container">
+        <div id="map"></div>
+        <div class="map-info">
+            <div class="info-box" data-location="branch1">
+                <i class='bx bx-map'></i>
+                <h4>Main Office</h4>
+                <p>123 Main St, City</p>
+                <p>Open: 8:00 AM - 10:00 PM</p>
+            </div>
+            <div class="info-box" data-location="branch2">
+                <i class='bx bx-map'></i>
+                <h4>Downtown Branch</h4>
+                <p>456 Downtown Ave, City</p>
+                <p>Open: 9:00 AM - 9:00 PM</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About Us</h3>
+        <p>We provide the best car rental services with a wide selection of vehicles.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#work">How it Works</a></li>
+          <li><a href="#deal">Rental Deals</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contact Info</h3>
+        <p><i class='bx bx-map'></i> 123 Main St, City</p>
+        <p><i class='bx bx-phone'></i> +1 234 567 890</p>
+        <p><i class='bx bx-envelope'></i> info@carrental.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2023 Car Rental. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script  src="./main.js"></script>
+
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  
+</body>
+
+</html>

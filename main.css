@@ -1,0 +1,945 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --back-color: #F5F7F2;
+    --text-color: #042C2D;
+    --sec-color: #FFFFFF;
+    --pri-color: #9DA6A3;
+    --btn-color: #FF7F40;
+    --para-color: #777777;
+    --foot-color: #F1F2ED;
+    --btm-color: #696B6A;
+
+    --big-fonts: 7.5rem;
+    --h1-fonts: 3.438rem;
+    --h2-fonts: 2.813rem;
+    --h3-fonts: 2.188rem;
+    --h4-fonts: 1.5rem;
+    --h5-fonts: 1.25rem;
+    --p-fonts: 1.125rem;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 10%;
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+}
+
+.navigation a {
+    color: var(--text-color);
+    font-size: var(--p-fonts);
+    text-transform: capitalize;
+    font-weight: 400;
+    padding: 10px 20px;
+    transition: all .42s;
+}
+
+.navigation .active {
+    color: var(--btn-color);
+}
+
+.navigation a:hover {
+    color: var(--btn-color);
+}
+
+.header-btn {
+    display: flex;
+    align-items: center;
+}
+
+.header-btn a {
+    display: inline-block;
+    color: var(--sec-color);
+    font-weight: 500;
+    text-transform: capitalize;
+    margin-right: 20px;
+}
+
+.btn-1 {
+    background-color: var(--text-color);
+    padding: 12px 30px;
+    border-radius: 30px;
+    color: var(--sec-color);
+    transition: all .42s;
+}
+
+.btn-1:hover {
+    background-color: var(--sec-color);
+    color: var(--text-color);
+}
+
+.btn-2 {
+    background-color: var(--btn-color);
+    padding: 12px 30px;
+    border-radius: 30px;
+    color: var(--sec-color);
+    transition: all .42s;
+}
+
+.btn-2:hover {
+    background-color: var(--sec-color);
+    color: var(--text-color);
+}
+
+#menu-icon {
+    font-size: var(--h3-fonts);
+    z-index: 10001;
+    background-color: var(--btn-color);
+    color: var(--sec-color);
+    border-radius: 5px;
+    padding: 4px 3px 3px 3px;
+    display: none;
+}
+
+section {
+    padding: 110px 10% 50px;
+}
+
+.home {
+    width: 100%;
+    height: 100vh;
+    background-image: url(img/background.png);
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 2rem;
+}
+
+.home-text h1 {
+    color: var(--text-color);
+    font-size: var(--h1-fonts);
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: capitalize;
+    margin-bottom: var(--p-fonts);
+}
+
+.home-text p {
+    max-width: 550px;
+    color: var(--text-color);
+    font-size: var(--p-fonts);
+    font-weight: 500;
+    line-height: 28px;
+    margin-bottom: 35px;
+}
+
+.mid-top {
+    display: flex;
+    align-items: center;
+    gap: 90px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+}
+
+.mid-top h5 {
+    color: var(--text-color);
+    font-size: var(--h5-fonts);
+    font-weight: 600;
+    text-transform: capitalize;
+
+}
+
+.car-pickup {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.car h5 {
+    color: var(--para-color);
+    font-size: var(--p-fonts);
+    font-weight: 600;
+    text-transform: capitalize;
+    margin-bottom: 25px;
+}
+
+.pickup h5 {
+    color: var(--para-color);
+    font-size: var(--p-fonts);
+    font-weight: 600;
+    text-transform: capitalize;
+    margin-bottom: 25px;
+}
+
+.car-pickup h5 {
+    background-color: var(--sec-color);
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: var(--para-color);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.home-mid {
+    margin-bottom: 40px;
+}
+
+.home-btn a {
+    display: inline-block;
+    color: var(--sec-color);
+    font-size: var(--p-fonts);
+    font-weight: 500;
+    background-color: var(--btn-color);
+    padding: 12px 80px;
+    border-radius: 30px;
+    letter-spacing: 0.5px;
+    transition: all .42s;
+}
+
+.home-btn a:hover {
+    background-color: var(--sec-color);
+    color: var(--btn-color);
+}
+
+.home img img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+}
+
+.container {
+    background-color: var(--back-color);
+
+}
+
+.work-top {
+    text-align: center;
+
+}
+
+.work-top h2 {
+    color: var(--text-color);
+    font-size: var(--h1-fonts);
+    font-weight: 700;
+    text-transform: inherit;
+    margin-bottom: 20px;
+}
+
+.work-top p {
+    max-width: 650px;
+    color: var(--text-color);
+    font-size: var(--p-fonts);
+    font-weight: 400;
+    line-height: 28px;
+    margin: 12px auto 60px;
+}
+
+.main-work {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+    gap: 2rem;
+
+}
+
+.work-1 {
+    text-align: center;
+}
+
+.work-1 i {
+    color: var(--text-color);
+    font-size: var(--h2-fonts);
+    background-color: var(--pri-color);
+    padding: 15px 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    transition: all .42s;
+}
+
+.work-1 i:hover {
+    transform: rotate(360deg);
+    transition: 0.8s;
+    color: var(--sec-color);
+    background-color: var(--btn-color);
+
+}
+
+.work-1 h4 {
+    color: var(--text-color);
+    font-size: var(--h4-fonts);
+    font-weight: 500;
+    text-transform: capitalize;
+    margin-bottom: 8px;
+}
+
+.work-1 p {
+    max-width: 350px;
+    color: var(--text-color);
+    font-size: var(--p-fonts);
+    font-weight: 400;
+    line-height: 28px;
+    margin: 0px auto 0px;
+}
+header.sticky{
+    background-color: var(--back-color);
+    padding: 15px 15px;
+    box-shadow: 0px 4px 15px rgb(0 0 0 / 8%);
+    transition: all .42s;
+}
+/* Add these styles to your main.css file */
+/* Add these styles to your main.css file or update existing styles */
+
+.car-select, .location-select, .date-input, .time-input {
+    background-color: var(--sec-color);
+    padding: 12px 20px;
+    border-radius: 10px;
+    color: var(--para-color);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border: none;
+    width: 100%;
+    margin-bottom: 25px;
+    font-size: var(--p-fonts);
+    font-weight: 600;
+}
+
+.date-time {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+/* Updated home-img styling */
+.home-img {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 100px;
+}
+
+/* Hide the default home image when showing selected car */
+#car-default-image.hidden {
+    display: none;
+}
+
+.car-display {
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.car-display img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 25px;
+    transition: all .3s ease;
+}
+
+.buy-btn {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.buy-btn a {
+    display: inline-block;
+    color: var(--sec-color);
+    font-size: var(--p-fonts);
+    font-weight: 500;
+    background-color: #28a745;
+    padding: 12px 80px;
+    border-radius: 30px;
+    letter-spacing: 0.5px;
+    transition: all .42s;
+}
+
+.buy-btn a:hover {
+    background-color: var(--sec-color);
+    color: #28a745;
+}
+
+.confirmation-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 10002;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: var(--sec-color);
+    padding: 30px 40px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 500px;
+}
+
+.popup-content h3 {
+    color: var(--text-color);
+    font-size: var(--h4-fonts);
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.popup-content p {
+    color: var(--para-color);
+    font-size: var(--p-fonts);
+}
+/* Добавьте эти стили в ваш main.css файл */
+
+/* Анимации для смены изображения автомобиля */
+@keyframes fadeOut {
+    0% { opacity: 1; transform: translateX(0); }
+    100% { opacity: 0; transform: translateX(-50px); }
+  }
+  
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateX(50px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+  
+  @keyframes zoomIn {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  
+  @keyframes slideUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  /* Стили для изображений */
+  .home-img {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Чтобы скрыть анимацию за пределами контейнера */
+  }
+  
+  #car-default-image {
+    transition: all 0.6s ease;
+  }
+  
+  #car-default-image.hidden {
+    animation: fadeOut 0.6s ease forwards;
+  }
+  
+  .car-display {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: relative;
+  }
+  
+  .car-display.show {
+    display: flex;
+    animation: zoomIn 0.8s ease-out forwards;
+  }
+  
+  .car-display img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
+    will-change: transform; /* Оптимизация производительности анимации */
+  }
+  
+  /* Анимация для кнопки Rent Now */
+  .buy-btn {
+    margin-top: 20px;
+    text-align: center;
+    animation: slideUp 0.5s ease 0.3s both; /* Начинается после появления изображения */
+  }
+  
+  .buy-btn a {
+    display: inline-block;
+    color: var(--sec-color);
+    font-size: var(--p-fonts);
+    font-weight: 500;
+    background-color: #28a745;
+    padding: 12px 80px;
+    border-radius: 30px;
+    letter-spacing: 0.5px;
+    transition: all 0.42s;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .buy-btn a:hover {
+    background-color: var(--sec-color);
+    color: #28a745;
+    animation: pulse 0.6s ease infinite;
+  }
+  
+  /* Эффект пульсации для кнопки поиска */
+  .home-btn a:hover {
+    animation: pulse 0.6s ease infinite;
+  }
+  
+  /* Стили для всплывающего окна с подтверждением */
+  .confirmation-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 10002;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .confirmation-popup.show {
+    opacity: 1;
+  }
+  
+  .popup-content {
+    background-color: var(--sec-color);
+    padding: 30px 40px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 500px;
+    transform: scale(0.8);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  .confirmation-popup.show .popup-content {
+    transform: scale(1);
+  }
+
+/* Добавьте эти стили в конец вашего main.css */
+
+/* Стили для секции Rental Deal */
+.deal {
+    padding: 110px 10% 50px;
+    background-color: var(--sec-color);
+  }
+  
+  .deal .work-1 {
+    background-color: var(--back-color);
+    padding: 20px;
+    border-radius: 15px;
+    transition: all .3s ease;
+  }
+  
+  .deal .work-1:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .deal .work-1 img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .deal .work-1 h4 {
+    color: var(--text-color);
+    margin-bottom: 10px;
+  }
+  
+  .deal .work-1 p {
+    color: var(--btn-color);
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+  
+  /* Стили для секции Why Choose Us */
+  .choose {
+    padding: 110px 10% 50px;
+    background-color: var(--back-color);
+  }
+  
+  .choose .work-1 i {
+    font-size: var(--h2-fonts);
+    color: var(--btn-color);
+    margin-bottom: 15px;
+  }
+  
+  /* Стили для секции Contact */
+  .contact {
+    padding: 110px 10% 50px;
+    background-color: var(--sec-color);
+  }
+  
+  .contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid var(--pri-color);
+    font-size: var(--p-fonts);
+  }
+  
+  .contact-form textarea {
+    height: 150px;
+    resize: vertical;
+  }
+  
+  /* Стили для футера */
+  footer {
+    background-color: var(--foot-color);
+    padding: 50px 10% 20px;
+  }
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .footer-section h3 {
+    color: var(--text-color);
+    font-size: var(--h4-fonts);
+    margin-bottom: 20px;
+  }
+  
+  .footer-section p, 
+  .footer-section li {
+    color: var(--btm-color);
+    margin-bottom: 10px;
+  }
+  
+  .footer-section a {
+    color: var(--btm-color);
+    transition: all .3s;
+  }
+  
+  .footer-section a:hover {
+    color: var(--btn-color);
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--pri-color);
+    color: var(--btm-color);
+  }
+  
+  /* Адаптивные стили */
+  @media (max-width: 768px) {
+    .home {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    
+    .home-img {
+      margin-left: 0;
+      margin-top: 50px;
+    }
+    
+    .car-pickup {
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .mid-top {
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .date-time {
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .navigation {
+      display: none;
+    }
+    
+    #menu-icon {
+      display: block;
+    }
+  }
+  /* Добавьте это в конец main.css */
+
+/* Reviews Section Styles */
+.reviews {
+    padding: 110px 10% 50px;
+    background-color: var(--back-color);
+}
+
+.review-swiper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.review-slide {
+    background-color: var(--sec-color);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    height: auto;
+}
+
+.review-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.review-rating {
+    color: var(--btn-color);
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.review-content p {
+    color: var(--text-color);
+    font-size: var(--p-fonts);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.review-author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.review-author img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.review-author h5 {
+    color: var(--text-color);
+    font-size: var(--h5-fonts);
+    font-weight: 600;
+}
+
+.swiper-pagination-bullet {
+    background: var(--pri-color);
+    opacity: 0.5;
+    width: 12px;
+    height: 12px;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--btn-color);
+    opacity: 1;
+}
+
+/* Responsive styles for reviews */
+@media (max-width: 768px) {
+    .review-slide {
+        padding: 20px;
+    }
+    
+    .review-rating {
+        font-size: 20px;
+    }
+}
+/* Добавьте эти стили в конец main.css */
+
+/* Map Section Styles */
+.map-section {
+    padding: 110px 10% 50px;
+    background-color: var(--sec-color);
+}
+
+.map-container {
+    display: flex;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+#map {
+    height: 500px;
+    width: 70%;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.map-info {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-box {
+    background-color: var(--back-color);
+    padding: 20px;
+    border-radius: 10px;
+    transition: all .3s ease;
+}
+
+.info-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.info-box i {
+    font-size: 30px;
+    color: var(--btn-color);
+    margin-bottom: 10px;
+}
+
+.info-box h4 {
+    color: var(--text-color);
+    font-size: var(--h5-fonts);
+    margin-bottom: 10px;
+}
+
+.info-box p {
+    color: var(--para-color);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Responsive styles for map */
+@media (max-width: 768px) {
+    .map-container {
+        flex-direction: column;
+    }
+    
+    #map {
+        width: 100%;
+        height: 300px;
+    }
+    
+    .map-info {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .info-box {
+        width: calc(50% - 10px);
+    }
+}
+
+@media (max-width: 480px) {
+    .info-box {
+        width: 100%;
+    }
+}
+/* Добавьте в конец файла */
+
+/* Auth Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10003;
+}
+
+.modal-content {
+    background-color: var(--sec-color);
+    padding: 30px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.auth-modal h3 {
+    color: var(--text-color);
+    font-size: var(--h4-fonts);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.auth-form input {
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid var(--pri-color);
+    font-size: var(--p-fonts);
+}
+
+/* Rental Details in Popup */
+.rental-details {
+    background-color: var(--back-color);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+.rental-details p {
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+.total-price {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--btn-color);
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--pri-color);
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        width: 90%;
+        padding: 20px;
+    }
+}
