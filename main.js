@@ -1,62 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Mobile menu elements
-    const menuIcon = document.getElementById('menu-icon');
-    const navigation = document.querySelector('.navigation');
-    const menuOverlay = document.createElement('div');
-    menuOverlay.className = 'menu-overlay';
-    document.body.appendChild(menuOverlay);
 
-    // Mobile menu toggle
-    menuIcon.addEventListener('click', function() {
-        // Toggle menu and overlay
-        navigation.classList.toggle('active');
-        menuOverlay.classList.toggle('active');
-        
-        // Toggle menu icon
-        if (navigation.classList.contains('active')) {
-            this.classList.remove('bx-menu');
-            this.classList.add('bx-x');
-            document.body.style.overflow = 'hidden'; // Block scroll when menu is open
-        } else {
-            this.classList.add('bx-menu');
-            this.classList.remove('bx-x');
-            document.body.style.overflow = ''; // Restore scroll
-        }
-    });
-
-    // Close menu when clicking on overlay
-    menuOverlay.addEventListener('click', function() {
-        navigation.classList.remove('active');
-        menuOverlay.classList.remove('active');
-        menuIcon.classList.add('bx-menu');
-        menuIcon.classList.remove('bx-x');
-        document.body.style.overflow = ''; // Restore scroll
-    });
-
-    // Close menu when clicking on links (for mobile)
-    document.querySelectorAll('.navigation a').forEach(link => {
-        link.addEventListener('click', function() {
-            if (window.innerWidth <= 768) {
-                navigation.classList.remove('active');
-                menuOverlay.classList.remove('active');
-                menuIcon.classList.add('bx-menu');
-                menuIcon.classList.remove('bx-x');
-                document.body.style.overflow = ''; // Restore scroll
-            }
-        });
-    });
-
-    // Close menu when window is resized above 768px
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 768) {
-            navigation.classList.remove('active');
-            menuOverlay.classList.remove('active');
-            menuIcon.classList.add('bx-menu');
-            menuIcon.classList.remove('bx-x');
-            document.body.style.overflow = ''; // Restore scroll
-        }
-    });
-});
 const carImages = {
     'jeep-diesel-2025': './img/jeep2025.png',
     'sedan-electric-2025': './img/sedan-elektro.webp',
@@ -160,68 +102,95 @@ document.addEventListener('DOMContentLoaded', function() {
     pickupDate.setAttribute('min', today);
     returnDate.setAttribute('min', today);
 
-    // Search button handler
-    searchBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        if (!carSelect.value || !locationSelect.value || !pickupDate.value || 
-            !pickupTime.value || !returnDate.value || !returnTime.value) {
-            alert('Please fill all fields before searching');
-            return;
-        }
-        
-        defaultCarImage.classList.add('hidden');
-        
-        setTimeout(() => {
-            selectedCarImage.src = carImages[carSelect.value];
-            carDisplay.style.display = 'flex';
-            setTimeout(() => {
-                carDisplay.classList.add('show');
-            }, 50);
-        }, 600);
-    });
-
-    // Rent Now button handler
-    buyBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        if (!carSelect.value) {
-            alert('Please select a car first');
-            return;
-        }
-        
-        rentedCarName.textContent = carNames[carSelect.value];
-        confirmationPopup.style.display = 'flex';
-        setTimeout(() => {
-            confirmationPopup.classList.add('show');
-        }, 10);
-        
-        setTimeout(function() {
-            confirmationPopup.classList.remove('show');
-            setTimeout(() => {
-                confirmationPopup.style.display = 'none';
-            }, 300);
-        }, 5000);
-    });
-
-    // Close popup when clicking outside
-    confirmationPopup.addEventListener('click', function(e) {
-        if (e.target === confirmationPopup) {
-            confirmationPopup.classList.remove('show');
-            setTimeout(() => {
-                confirmationPopup.style.display = 'none';
-            }, 300);
-        }
-    });
+ // Общая функция для отображения выбранной машины
+function showSelectedCar(carId) {
+    defaultCarImage.classList.add('hidden');
     
-    // Car image hover effect
-    selectedCarImage.addEventListener('mouseover', function() {
-        this.style.transform = 'scale(1.03)';
-    });
+    setTimeout(() => {
+        selectedCarImage.src = carImages[carId];
+        carDisplay.style.display = 'flex';
+        setTimeout(() => {
+            carDisplay.classList.add('show');
+        }, 50);
+    }, 600);
+}
+
+// Search button handler
+searchBtn.addEventListener('click', function(e) {
+    e.preventDefault();
     
-    selectedCarImage.addEventListener('mouseout', function() {
-        this.style.transform = 'scale(1)';
+    if (!carSelect.value || !locationSelect.value || !pickupDate.value || 
+        !pickupTime.value || !returnDate.value || !returnTime.value) {
+        alert('Please fill all fields before searching');
+        return;
+    }
+    
+    showSelectedCar(carSelect.value);
+});
+
+// Rent Now button handler
+buyBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    if (!carSelect.value) {
+        alert('Please select a car first');
+        return;
+    }
+    
+    // Расчет стоимости аренды
+    const pickupDateTime = new Date(`${pickupDate.value}T${pickupTime.value}`);
+    const returnDateTime = new Date(`${returnDate.value}T${returnTime.value}`);
+    const diffTime = Math.abs(returnDateTime - pickupDateTime);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+    const pricePerDay = rentalPrices[carSelect.value];
+    const totalPrice = diffDays * pricePerDay;
+    
+    document.querySelector('.popup-content').innerHTML = `
+        <h3>You have rented <span id="rented-car-name">${carNames[carSelect.value]}</span></h3>
+        <div class="rental-details">
+            <p><strong>Pickup:</strong> ${pickupDate.value} at ${pickupTime.value}</p>
+            <p><strong>Return:</strong> ${returnDate.value} at ${returnTime.value}</p>
+            <p><strong>Duration:</strong> ${diffDays} day(s)</p>
+            <p><strong>Price per day:</strong> $${pricePerDay}</p>
+            <p class="total-price"><strong>Total:</strong> $${totalPrice}</p>
+        </div>
+        <p>We will deliver it to your location within 2 days.</p>
+    `;
+    
+    confirmationPopup.style.display = 'flex';
+    setTimeout(() => {
+        confirmationPopup.classList.add('show');
+    }, 10);
+    
+    setTimeout(function() {
+        confirmationPopup.classList.remove('show');
+        setTimeout(() => {
+            confirmationPopup.style.display = 'none';
+        }, 300);
+    }, 10000);
+});
+
+// Rent buttons in Rental Deal section
+rentButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.preventDefault();
+        const carId = this.getAttribute('data-car');
+        carSelect.value = carId;
+        
+        // Показываем выбранную машину
+        showSelectedCar(carId);
+        
+        // Scroll to home section
+        document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
     });
+});
+
+// Обновляем изображение при изменении выбора в выпадающем списке
+carSelect.addEventListener('change', function() {
+    if (this.value) {
+        showSelectedCar(this.value);
+    }
+});
     
     // Rent buttons in Rental Deal section
     rentButtons.forEach(button => {
