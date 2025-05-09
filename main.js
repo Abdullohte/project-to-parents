@@ -1,3 +1,62 @@
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu elements
+    const menuIcon = document.getElementById('menu-icon');
+    const navigation = document.querySelector('.navigation');
+    const menuOverlay = document.createElement('div');
+    menuOverlay.className = 'menu-overlay';
+    document.body.appendChild(menuOverlay);
+
+    // Mobile menu toggle
+    menuIcon.addEventListener('click', function() {
+        // Toggle menu and overlay
+        navigation.classList.toggle('active');
+        menuOverlay.classList.toggle('active');
+        
+        // Toggle menu icon
+        if (navigation.classList.contains('active')) {
+            this.classList.remove('bx-menu');
+            this.classList.add('bx-x');
+            document.body.style.overflow = 'hidden'; // Block scroll when menu is open
+        } else {
+            this.classList.add('bx-menu');
+            this.classList.remove('bx-x');
+            document.body.style.overflow = ''; // Restore scroll
+        }
+    });
+
+    // Close menu when clicking on overlay
+    menuOverlay.addEventListener('click', function() {
+        navigation.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        menuIcon.classList.add('bx-menu');
+        menuIcon.classList.remove('bx-x');
+        document.body.style.overflow = ''; // Restore scroll
+    });
+
+    // Close menu when clicking on links (for mobile)
+    document.querySelectorAll('.navigation a').forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                navigation.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                menuIcon.classList.add('bx-menu');
+                menuIcon.classList.remove('bx-x');
+                document.body.style.overflow = ''; // Restore scroll
+            }
+        });
+    });
+
+    // Close menu when window is resized above 768px
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            navigation.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            menuIcon.classList.add('bx-menu');
+            menuIcon.classList.remove('bx-x');
+            document.body.style.overflow = ''; // Restore scroll
+        }
+    });
+});
 const carImages = {
     'jeep-diesel-2025': './img/jeep2025.png',
     'sedan-electric-2025': './img/sedan-elektro.webp',
